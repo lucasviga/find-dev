@@ -46,16 +46,6 @@ class AddUser extends Component {
           <button type="submit">Adicionar</button>
           {this.props.users.loading && <span>carregando...</span>}
         </form>
-
-        <ul>
-          {this.props.users.data.map(user => (
-            <li key={user.id}>
-              <img src={user.avatar} alt={user.name} height={120} />
-              <p>{user.name}</p>
-              <p>{user.login}</p>
-            </li>
-          ))}
-        </ul>
       </div>
     );
   }
