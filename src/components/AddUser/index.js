@@ -46,6 +46,8 @@ class AddUser extends Component {
           <button type="submit">Adicionar</button>
           {this.props.users.loading && <span>carregando...</span>}
         </form>
+
+        {this.props.users.error && <span>{this.props.users.error}</span>}
       </div>
     );
   }

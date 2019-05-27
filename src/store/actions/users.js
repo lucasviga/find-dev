@@ -7,3 +7,8 @@ export const addUserSuccess = data => ({
   type: "ADD_USER_SUCCESS",
   payload: { data }
 });
+
+export const addUserFailure = error => ({
+  type: "ADD_USER_FAILURE",
+  payload: { error }
+});
