@@ -9,7 +9,6 @@ import "./styles.css";
 const LeftBar = props => (
   <div className="left-bar">
     <h1>List of Users</h1>
-
     <ul>
       {props.users.data.map(user => (
         <li key={user.id}>

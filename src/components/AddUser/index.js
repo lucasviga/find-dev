@@ -1,12 +1,14 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 
+import Modal from "react-modal";
+
 //conecta o component com alguma info do redux
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import * as UserActions from "../../store/actions/users";
 
-// import api from "../../services/api";
+Modal.setAppElement(document.getElementById("root"));
 
 class AddUser extends Component {
   static propTypes = {
@@ -33,6 +35,10 @@ class AddUser extends Component {
     this.props.addUserRequest(this.state.userInput);
     this.setState({ userInput: "" });
   };
+
+  handleFormSubmit = e => {};
+
+  handleHideModal = () => {};
 
   render() {
     return (
