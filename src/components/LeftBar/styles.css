@@ -1,0 +1,14 @@
+.left-bar {
+  width: 25%;
+  background: rgba(216, 234, 217, 0.8);
+  position: absolute;
+  left: 2%;
+  top: 3%;
+  height: 94%;
+  border-radius: 5px;
+  overflow: auto;
+}
+
+.left-bar ul {
+  list-style: none;
+}

@@ -1,11 +1,13 @@
-import React, { Fragment } from "react";
+import React from "react";
 
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import * as UserActions from "../../store/actions/users";
 
+import "./styles.css";
+
 const LeftBar = props => (
-  <Fragment>
+  <div className="left-bar">
     <h1>List of Users</h1>
 
     <ul>
@@ -17,7 +19,7 @@ const LeftBar = props => (
         </li>
       ))}
     </ul>
-  </Fragment>
+  </div>
 );
 
 const mapStateToProps = state => ({
