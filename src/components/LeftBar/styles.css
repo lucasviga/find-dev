@@ -56,3 +56,16 @@
 
   font-weight: 400;
 }
+
+.left-bar ul li button {
+  background: transparent;
+}
+
+.left-bar ul li div i {
+  font-size: 1.2rem;
+  margin-left: 1rem;
+}
+
+.left-bar ul li div .remove {
+  color: #f00;
+}

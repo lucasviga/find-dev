@@ -20,6 +20,9 @@ const LeftBar = ({ users }) => (
               <h1>{user.name}</h1>
               <h2>{user.login}</h2>
             </div>
+            <button type="button">
+              <i className="fa fa-fw fa-times-circle remove" />
+            </button>
           </div>
         </li>
       ))}
