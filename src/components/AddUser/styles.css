@@ -5,6 +5,7 @@
   border-radius: 0.7rem;
   display: flex;
   flex-direction: column;
+  outline: 0;
 }
 
 .modal-overlay {
@@ -13,12 +14,13 @@
   left: 0;
   right: 0;
   bottom: 0;
+  background-color: rgba(0, 0, 0, 0.4);
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.modal-overlay h2 {
+.modal-container h2 {
   color: #333;
   font-size: 1.4rem;
 }
@@ -36,5 +38,38 @@
   border-radius: 1rem;
 }
 
-.container-button {
+.form .container-button {
+  display: flex;
+}
+
+.form .container-button button {
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  border-radius: 0.6rem;
+  padding: 1;
+  color: #fff;
+  font-size: 1.4rem;
+}
+
+.form .container-button button:nth-child(2n-1) {
+  margin-right: 1.5rem;
+  border: 1px solid #999;
+  color: #999;
+}
+
+.form .container-button button:nth-child(2n-1):hover {
+  border: 1px solid #999;
+  color: #fff;
+}
+
+.form .container-button button:nth-child(2n) {
+  margin-right: 1.5rem;
+  border: 1px solid #5cdb95;
+  color: #5cdb95;
+}
+
+.form .container-button button:nth-child(2n):hover {
+  border: 1px solid #5cdb95;
+  color: #fff;
 }

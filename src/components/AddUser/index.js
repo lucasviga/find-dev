@@ -16,18 +16,19 @@ Modal.setAppElement(document.getElementById("root"));
 
 class AddUser extends Component {
   static propTypes = {
-    addUserRequest: PropTypes.func.isRequired,
-    users: PropTypes.shape({
-      loadgin: PropTypes.bool,
-      data: PropTypes.arrayOf(
+    modal: PropTypes.shape({
+      visible: PropTypes.bool,
+      error: PropTypes.oneOfType([PropTypes.oneOf([null]), PropTypes.string]),
+      cordinates: PropTypes.oneOfType([
+        PropTypes.oneOf([null]),
         PropTypes.shape({
-          id: PropTypes.number,
-          name: PropTypes.string,
-          description: PropTypes.string,
-          url: PropTypes.string
+          latitude: PropTypes.number,
+          longitude: PropTypes.number
         })
-      )
-    }).isRequired
+      ])
+    }).isRequired,
+    hideModal: PropTypes.func.isRequired,
+    addUserRequest: PropTypes.func.isRequired
   };
 
   state = {
@@ -73,7 +74,7 @@ class AddUser extends Component {
       >
         <h2>Adicionar novo dev</h2>
 
-        <form onSubmit={this.handleAddUser} className="form">
+        <form onSubmit={this.handleFormSubmit} className="form">
           <input
             placeholder="user do github"
             value={userInput}
