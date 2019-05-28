@@ -59,7 +59,7 @@ class Map extends Component {
       >
         {users.data.map(user => (
           <Marker
-            latitude={user.cordinates.latitde}
+            latitude={user.cordinates.latitude}
             longitude={user.cordinates.longitude}
             key={user.id}
           >
