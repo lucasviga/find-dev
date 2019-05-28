@@ -11,13 +11,16 @@ import "./styles.css";
 
 const LeftBar = ({ users }) => (
   <div className="left-bar">
-    <h1>List of Users</h1>
     <ul>
       {users.data.map(user => (
         <li key={user.id}>
-          <img src={user.avatar} alt={user.name} height={120} />
-          <h1>{user.name}</h1>
-          <h2>{user.login}</h2>
+          <div>
+            <img src={user.avatar} alt={user.name} />
+            <div className="user-info">
+              <h1>{user.name}</h1>
+              <h2>{user.login}</h2>
+            </div>
+          </div>
         </li>
       ))}
     </ul>

@@ -4,6 +4,8 @@ import store from "./store";
 // import Map from "./components/Map";
 import Routes from "./routes";
 
+import "./styles.css";
+
 const App = () => (
   <Provider store={store}>
     <Routes />
