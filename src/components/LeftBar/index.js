@@ -9,7 +9,7 @@ import { Creators as UserActions } from "../../store/ducks/users";
 
 import "./styles.css";
 
-const LeftBar = ({ users, removeUser }) => (
+const LeftBar = ({ users }) => (
   <div className="left-bar">
     <h1>List of Users</h1>
     <ul>
@@ -25,8 +25,7 @@ const LeftBar = ({ users, removeUser }) => (
 );
 
 LeftBar.propTypes = {
-  users: PropTypes.shape({}).isRequired,
-  removeUser: PropTypes.func.isRequired
+  users: PropTypes.shape({}).isRequired
 };
 
 const mapStateToProps = state => ({
