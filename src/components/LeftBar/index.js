@@ -1,25 +1,33 @@
 import React from "react";
 
+import PropTypes from "prop-types";
+
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
-import * as UserActions from "../../store/actions/users";
+
+import { Creators as UserActions } from "../../store/ducks/users";
 
 import "./styles.css";
 
-const LeftBar = props => (
+const LeftBar = ({ users, removeUser }) => (
   <div className="left-bar">
     <h1>List of Users</h1>
     <ul>
-      {props.users.data.map(user => (
+      {users.data.map(user => (
         <li key={user.id}>
           <img src={user.avatar} alt={user.name} height={120} />
-          <p>{user.name}</p>
-          <p>{user.login}</p>
+          <h1>{user.name}</h1>
+          <h2>{user.login}</h2>
         </li>
       ))}
     </ul>
   </div>
 );
+
+LeftBar.propTypes = {
+  users: PropTypes.shape({}).isRequired,
+  removeUser: PropTypes.func.isRequired
+};
 
 const mapStateToProps = state => ({
   users: state.users
