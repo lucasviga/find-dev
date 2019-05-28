@@ -1,8 +1,8 @@
 import { call, put } from "redux-saga/effects";
 import api from "../../services/api";
 
-import { addUserSuccess } from "../actions/users";
-import { addUserFailure } from "../actions/users";
+import { Creators as UsersActions } from "../ducks/users";
+import { Creators as ModalActions } from "../ducks/modal";
 
 export function* addUser(action) {
   try {
@@ -16,8 +16,10 @@ export function* addUser(action) {
       cordinates: action.payload.cordinates
     };
 
-    yield put(addUserSuccess(userData));
+    yield put(UsersActions.addUserSuccess(userData));
   } catch (err) {
-    yield put(addUserFailure("erro ao adicionar o usuário"));
+    yield put(UsersActions.addUserFailure("erro ao adicionar o usuário"));
+  } finally {
+    yield put(ModalActions.hideModal());
   }
 }
