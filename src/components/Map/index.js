@@ -1,11 +1,11 @@
 import React, { Component } from "react";
 import MapGL, { Marker } from "react-map-gl";
 
-import { connect } from "redux-saga";
+import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
-import * as UserActions from "../../store/actions/users";
+import { Creators as ModalActions } from "../../store/ducks/modal";
 
-import "mapbox-gl/dist/mapbox-gl.css";
+import "./styles.css";
 
 class Map extends Component {
   state = {
@@ -37,11 +37,12 @@ class Map extends Component {
     });
   };
 
-  handleMapClick(e) {
+  handleMapClick = async e => {
     const [longitude, latitude] = e.lngLat;
+    const { showModal } = this.props;
 
-    alert(`Latitude: ${latitude} \nLongitude: ${longitude}`);
-  }
+    await showModal({ latitude, longitude });
+  };
 
   render() {
     const { users } = this.props;
@@ -57,7 +58,11 @@ class Map extends Component {
         onViewportChange={viewport => this.setState({ viewport })}
       >
         {users.data.map(user => (
-          <Marker latitude={-23.5439948} longitude={-46.6065452} key={user.id}>
+          <Marker
+            latitude={user.cordinates.latitde}
+            longitude={user.cordinates.longitude}
+            key={user.id}
+          >
             <img
               style={{ borderRadius: 100, width: 48, height: 48 }}
               src={user.avatar}
@@ -75,7 +80,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch =>
-  bindActionCreators(UserActions, dispatch);
+  bindActionCreators(ModalActions, dispatch);
 
 export default connect(
   mapStateToProps,
