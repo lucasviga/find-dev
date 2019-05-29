@@ -13,7 +13,7 @@ import "./styles.css";
 const App = () => (
   <Provider store={store}>
     <Routes />
-    <ToastContainer autoclose={3000} />
+    <ToastContainer autoClose={3000} />
   </Provider>
 );
 export default App;
