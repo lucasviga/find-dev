@@ -4,6 +4,7 @@ import store from "./store";
 // import Map from "./components/Map";
 import Routes from "./routes";
 
+import "font-awesome/css/font-awesome.css";
 import "./styles.css";
 
 const App = () => (

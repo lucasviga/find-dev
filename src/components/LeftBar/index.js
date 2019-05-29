@@ -9,8 +9,9 @@ import { Creators as UserActions } from "../../store/ducks/users";
 
 import "./styles.css";
 
-const LeftBar = ({ users }) => (
+const LeftBar = ({ users, removeUser }) => (
   <div className="left-bar">
+    {!users.data.length && <span>Nenhum usuário foi adicionado</span>}
     <ul>
       {users.data.map(user => (
         <li key={user.id}>
@@ -20,9 +21,17 @@ const LeftBar = ({ users }) => (
               <h1>{user.name}</h1>
               <h2>{user.login}</h2>
             </div>
-            <button type="button">
+            <button type="button" onClick={() => removeUser(user)}>
               <i className="fa fa-fw fa-times-circle remove" />
             </button>
+
+            <a
+              href={`https://github.com/${user.login}`}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <i className="fa fa-fw fa-angle-right go-to-page" />
+            </a>
           </div>
         </li>
       ))}
@@ -31,7 +40,8 @@ const LeftBar = ({ users }) => (
 );
 
 LeftBar.propTypes = {
-  users: PropTypes.shape({}).isRequired
+  users: PropTypes.shape({}).isRequired,
+  removeUser: PropTypes.func.isRequired
 };
 
 const mapStateToProps = state => ({
